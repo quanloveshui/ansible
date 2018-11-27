@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>ansible test</title>
+</head>
+<body>
+    <form action="/ansibleapi/result/" method="post">
+        {% csrf_token %}
+       <p>
+        <label for="host">host：</label>
+        <input type="text" name="host">
+        </p>
+       <p>
+        <label for="cmd">cmd：</label>
+        <input type="text" name="cmd">
+        </p>
+        <input type="submit" value="Submit">
+    </form>
+
+</body>
+</html>
