@@ -5,17 +5,11 @@
 <title>ansible test</title>
 </head>
 <body>
-     
-
     <form action="/ansibleapi/result/" method="post">
         {% csrf_token %}
        <p>
         <label for="host">host：</label>
-        <select name="host"> 
-            <option value="192.168.149.129">192.168.149.129</option>
-            <option value="192.168.149.139">192.168.149.139</option>
-            <option value="192.168.149.149">192.168.149.149</option>
-        </select>  
+        <input type="text" name="host">
         </p>
        <p>
         <label for="cmd">cmd：</label>
@@ -23,7 +17,6 @@
         </p>
         <input type="submit" value="Submit">
     </form>
-
 
 </body>
 </html>
