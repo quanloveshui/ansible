@@ -77,6 +77,11 @@ class AnsibleApi(object):
         self.callback = ModelResultsCollector()
         self.passwords = dict()
 
+    def display_hosts(self):
+        groups = self.inventory.get_groups_dict()
+        groups = json.dumps(groups, sort_keys=False, indent=4)
+        return groups
+
     def runansible(self,host_list, task_list):
 
         play_source =  dict(
@@ -113,6 +118,13 @@ class AnsibleApi(object):
 
 def ansible_index(request):
     return render(request, "index.html")
+
+def display(request):
+    result = {}
+    a = AnsibleApi()
+    data = a.display_hosts()
+    result['data'] = data
+    return render(request, 'list.html',{"result":result})
 
 def ansible_api(request):
     result = {}
